@@ -1,0 +1,80 @@
+
+- CODIGO ABAIXO -
+
+
+import java.util.Scanner;
+
+public class MangaSoundApplication {
+    public static final String RESET = "\u001B[0m";
+    public static final String AZUL = "\u001B[34m";
+    public static final String VERDE = "\u001B[32m";
+    public static final String AMARELO = "\u001B[33m";
+    public static final String CIANO = "\u001B[36m";
+    public static final String VERMELHO = "\u001B[31m";
+    public static final String NEGRITO = "\u001B[1m";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        GerenciadorDeMusicas reprodutor = new GerenciadorDeMusicas();
+        GerenciadorDePlaylists gerenciadorDePlaylists = new GerenciadorDePlaylists();
+
+        System.out.println(AZUL + NEGRITO + "\n🎵 Bem-vindo ao MangaSound Player! 🎵" + RESET);
+        System.out.print(AMARELO + "Você está preparado para uma jornada radiofônica? (sim ou não): " + RESET);
+        String resposta = scanner.nextLine().trim().toLowerCase();
+
+        if (resposta.equals("não")) {
+            System.out.println(VERMELHO + "Ok, talvez uma próxima vez. Bye! 👋" + RESET);
+            scanner.close();
+            System.exit(0);
+        } else if (!resposta.equals("sim")) {
+            System.out.println(CIANO + "Resposta incomum... mas vamos nessa assim mesmo! 🚀" + RESET);
+        }
+
+        while (true) {
+            System.out.println(NEGRITO + "\n======================================================" + RESET);
+            System.out.println(NEGRITO + CIANO + "                  🎧 MENU PRINCIPAL 🎧                  " + RESET);
+            System.out.println(NEGRITO + "======================================================" + RESET);
+            System.out.println(VERDE + "  1." + RESET + "  Adicionar música");
+            System.out.println(VERDE + "  2." + RESET + "  Criar playlist");
+            System.out.println(VERDE + "  3." + RESET + "  Adicionar música à playlist");
+            System.out.println(VERDE + "  4." + RESET + "  Reproduzir playlist");
+            System.out.println(VERDE + "  5." + RESET + "  Sair");
+            System.out.println(NEGRITO + "======================================================" + RESET);
+            System.out.print(NEGRITO + AMARELO + "Escolha uma opção: " + RESET);
+
+            try {
+                int opcao = Integer.parseInt(scanner.nextLine());
+                // Apenas exibe mensagens para opções não implementadas ainda
+                switch (opcao) {
+                    case 1:
+                        System.out.println(VERMELHO + " " + RESET);
+                        break;
+                    case 2:
+                        System.out.println(VERMELHO + " " + RESET);
+                        break;
+                    case 3:
+                        System.out.println(VERMELHO + " " + RESET);
+                        break;
+                    case 4:
+                        System.out.println(VERMELHO + " " + RESET);
+                        break;
+                    case 5:
+                        System.out.println(VERDE + "Até logo! 👋 Encerrando o MangaSound Player..." + RESET);
+                        scanner.close();
+                        System.exit(0);
+                    default:
+                        System.out.println(VERMELHO + "❌ Opção inválida! Tente novamente." + RESET);
+                }
+            } catch (Exception e) {
+                System.out.println(VERMELHO + "Erro: " + e.getMessage() + RESET);
+            }
+        }
+
+
+          - ESPECIALIZAÇÃO DO CODIGÓ - 
+
+          Nessa primeira versão do MangaSound, criamos só o básico: um menu colorido com opções (adicionar música, playlists etc.) que ainda não funciona. 
+          O programa já começava interativo, perguntando se o usuário querer continuar e tratando respostas erradas. 
+          As classes principais estavão definidas mas vazias - a Application controla o menu, enquanto GerenciadorDeMusicas e GerenciadorDePlaylists serão implementados depois. 
+          é só o esqueleto do player, sem funcionalidades reais ainda, mas bem organizado pra facilitar a evolução. O código já prever erros simples, evitando travamentos. 
+          Essa base dá pra evoluir rapidamente pelo tempo que nos resta e desenvolver as próximas versões sem precisar ficar refazer tudo.
